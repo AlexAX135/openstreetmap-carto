@@ -319,7 +319,7 @@ function geofabrik_code(tags)
     local code = 0
     for k, v in pairs(tags) do
         if code_info[k] and code_info[k][v] then
-            code = math.max(code, code_info[k][v].code)
+            code = code_info[k][v].code
         end
     end
 
@@ -414,8 +414,8 @@ function filter_tags_way (keyvalues, numberofkeys)
     keyvalues["z_order"] = z_order(keyvalues)
     
     -- Add code column
-    --keyvalues["code"] = geofabrik_code(keyvalues)
-    keyvalues["code"] = 101
+    keyvalues["code"] = geofabrik_code(keyvalues)
+    --keyvalues["code"] = 101
 
     return filter, keyvalues, polygon, roads(keyvalues)
 end
