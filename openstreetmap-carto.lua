@@ -183,6 +183,58 @@ delete_prefixes = {
     'mvdgis:'
 }
 
+-- Big table for code used by Geofabrik
+local code_info = {
+    highway = {
+        motorway        = {code = 5111},
+        trunk           = {code = 5112},
+        primary         = {code = 5113},
+        secondary       = {code = 5114},
+        tertiary        = {code = 5115},
+        residential     = {code = 5122},
+        unclassified    = {code = 5121},
+        road            = {code = 5199},
+        living_street   = {code = 5123},
+        pedestrian      = {code = 5124},
+        raceway         = {code = 0},
+        motorway_link   = {code = 5131},
+        trunk_link      = {code = 5132},
+        primary_link    = {code = 5133},
+        secondary_link  = {code = 5134},
+        tertiary_link   = {code = 0},
+        service         = {code = 5141},
+        track           = {code = 5142},
+        path            = {code = 5154},
+        footway         = {code = 5153},
+        bridleway       = {code = 5151},
+        cycleway        = {code = 5152},
+        steps           = {code = 5155},
+        platform        = {code = 0}
+    },
+    railway = {
+        rail            = {code = 6101},
+        subway          = {code = 6103},
+        narrow_gauge    = {code = 6106},
+        light_rail      = {code = 6102},
+        funicular       = {code = 6108},
+        preserved       = {code = 0},
+        monorail        = {code = 6105},
+        miniature       = {code = 6107},
+        turntable       = {code = 0},
+        tram            = {code = 6104},
+        disused         = {code = 0},
+        construction    = {code = 0},
+        platform        = {code = 0}
+    },
+    aeroway = {
+        runway          = {code = 0},
+        taxiway         = {code = 0}
+    },
+    boundary = {
+        administrative  = {code = 0}
+    },
+}
+
 -- Big table for z_order and roads status for certain tags. z=0 is turned into
 -- nil by the z_order function
 local roads_info = {
@@ -261,6 +313,17 @@ function z_order(tags)
     end
 
     return z ~= 0 and z or nil
+end
+
+function geofabrik_code(tags)
+    local code = 0
+    for k, v in pairs(tags) do
+        if code_info[k] and code_info[k][v] then
+            z = math.max(code, code_info[k][v].code)
+        end
+    end
+
+    return code or nil
 end
 
 --- Gets the roads table status for a set of tags
@@ -349,6 +412,9 @@ function filter_tags_way (keyvalues, numberofkeys)
 
     -- Add z_order column
     keyvalues["z_order"] = z_order(keyvalues)
+    
+    -- Add code column
+    keyvalues["code"] = geofabrik_code(keyvalues)
 
     return filter, keyvalues, polygon, roads(keyvalues)
 end
