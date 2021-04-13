@@ -49,6 +49,7 @@ way        tracktype    text         linear
 way        tunnel       text         linear
 node,way   water        text         polygon
 node,way   waterway     text         polygon
+way        maxspeed     text         linear
 way        way_area     real         linear # This is calculated during import
 
 # Columns defined in openstreetmap-carto.lua file
