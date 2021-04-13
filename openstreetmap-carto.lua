@@ -319,7 +319,7 @@ function geofabrik_code(tags)
     local code = 0
     for k, v in pairs(tags) do
         if code_info[k] and code_info[k][v] then
-            z = math.max(code, code_info[k][v].code)
+            code = math.max(code, code_info[k][v].code)
         end
     end
 
