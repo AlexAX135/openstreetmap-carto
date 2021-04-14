@@ -415,7 +415,7 @@ function filter_tags_way (keyvalues, numberofkeys)
     
     -- Add code column
     --keyvalues["code"] = geofabrik_code(keyvalues)
-    keyvalues["code"] = z_order(keyvalues)
+    keyvalues["code"] = geofabrik_code(keyvalues)
 
     return filter, keyvalues, polygon, roads(keyvalues)
 end
