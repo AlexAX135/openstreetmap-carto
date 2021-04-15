@@ -230,6 +230,20 @@ local code_info = {
         runway          = {code = 0},
         taxiway         = {code = 0}
     },
+    place = {
+        city            = {code = 1001},
+        town            = {code = 1002},
+        village         = {code = 1003},
+        hamlet          = {code = 1004},
+        national_capital= {code = 1005},
+        suburb          = {code = 1010},
+        island          = {code = 1020},
+        farm            = {code = 1030},
+        dwelling        = {code = 1031},
+        region          = {code = 1040},
+        county          = {code = 1041},
+        locality        = {code = 1050}
+    },
     boundary = {
         administrative  = {code = 0}
     },
