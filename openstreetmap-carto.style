@@ -56,4 +56,4 @@ way        way_area     real         linear # This is calculated during import
 way        z_order      int4         linear
 
 # Columns defined in openstreetmap-carto.lua file for Geofabrik code
-way        code      int4         linear
+node,way   code         int4         linear
