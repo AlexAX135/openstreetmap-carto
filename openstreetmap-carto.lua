@@ -385,8 +385,7 @@ function filter_tags_generic(tags)
         return 1, {}
     end
     
-    -- Add code column
-    keyvalues["code"] = geofabrik_code(keyvalues)
+    
 
     -- Convert layer to an integer
     tags['layer'] = layer(tags['layer'])
@@ -395,6 +394,8 @@ end
 
 -- Filtering on nodes
 function filter_tags_node (keyvalues, numberofkeys)
+     -- Add code column
+    keyvalues["code"] = geofabrik_code(keyvalues)
     return filter_tags_generic(keyvalues)
 end
 
@@ -431,8 +432,7 @@ function filter_tags_way (keyvalues, numberofkeys)
     keyvalues["z_order"] = z_order(keyvalues)
     
     -- Add code column
-    --keyvalues["code"] = geofabrik_code(keyvalues)
-    --keyvalues["code"] = geofabrik_code(keyvalues)
+    keyvalues["code"] = geofabrik_code(keyvalues)
 
     return filter, keyvalues, polygon, roads(keyvalues)
 end
