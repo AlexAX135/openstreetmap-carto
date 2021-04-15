@@ -370,6 +370,9 @@ function filter_tags_generic(tags)
     if next(tags) == nil then
         return 1, {}
     end
+    
+    -- Add code column
+    keyvalues["code"] = geofabrik_code(keyvalues)
 
     -- Convert layer to an integer
     tags['layer'] = layer(tags['layer'])
@@ -415,7 +418,7 @@ function filter_tags_way (keyvalues, numberofkeys)
     
     -- Add code column
     --keyvalues["code"] = geofabrik_code(keyvalues)
-    keyvalues["code"] = geofabrik_code(keyvalues)
+    --keyvalues["code"] = geofabrik_code(keyvalues)
 
     return filter, keyvalues, polygon, roads(keyvalues)
 end
