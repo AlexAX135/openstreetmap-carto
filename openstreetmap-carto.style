@@ -51,6 +51,7 @@ node,way   water        text         polygon
 node,way   waterway     text         polygon
 way        maxspeed     text         linear
 way        way_area     real         linear # This is calculated during import
+node,way   user         text         linear
 
 # Columns defined in openstreetmap-carto.lua file
 way        z_order      int4         linear
