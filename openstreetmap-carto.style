@@ -59,4 +59,5 @@ way        z_order      int4         linear
 # Columns defined in openstreetmap-carto.lua file for Geofabrik code
 node,way   code         int4         linear
 
+#for Hastus map
 way        hastus     text         linear
