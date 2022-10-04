@@ -3,7 +3,7 @@
 
 #stations {
   [railway = 'subway_entrance'][zoom >= 18] {
-    marker-file: url('symbols/entrance.10.svg');
+    marker-file: url('symbols/amenity/entrance.svg');
     marker-fill: @transportation-icon;
     marker-clip: false;
     [zoom >= 19] {
@@ -29,7 +29,8 @@
     [zoom >= 14][station = 'subway'] {
       marker-width: 6;
     }
-    [zoom >= 14] {
+    [zoom >= 14][station !='subway'],
+    [zoom >=15] {
       text-name: "[name]";
       text-face-name: @bold-fonts;
       text-size: 10;
@@ -40,7 +41,8 @@
       text-wrap-width: 30; // 3 em
       text-line-spacing: -1.5; // -0.15 em
     }
-    [zoom >= 15] {
+    [zoom >= 15][station != 'subway'],
+    [zoom >= 16] {
       marker-width: 9;
       text-size: 11;
       text-wrap-width: 33; // 3 em

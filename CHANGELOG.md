@@ -1,4 +1,48 @@
-## [Unreleased](https://github.com/gravitystorm/openstreetmap-carto/compare/v5.3.1...master)
+## [Unreleased](https://github.com/gravitystorm/openstreetmap-carto/compare/v5.6.1...master)
+
+## [Unreleased](https://github.com/gravitystorm/openstreetmap-carto/compare/v5.6.0...v5.6.1) - 2022-08-12
+### Changes
+- Rendering of water areas on zooms 0 to 4 fixed (#4640)
+
+## [v5.6.0](https://github.com/gravitystorm/openstreetmap-carto/compare/v5.5.1...v5.6.0) - 2022-08-03
+### Major Changes
+- The style now uses locally installed fonts, using `scripts/get-fonts.sh` to download the fonts.
+
+### Changes
+- Code and performance improvements (#4591, #4601)
+- Recommend disabling PostgreSQL JIT for rendering (#4592)
+- Change tree and tree row colours to the same colour as areas with trees (#4448)
+- Don't label public transport shelters with elevation (#4313)
+- Update code of conduct to explicitly prohibit doxxing (#4554)
+- Add parcel lockers (#4512)
+- Render name labels of bays and straights from z14 only, and lakes from z5 (#3750)
+
+## [v5.5.1](https://github.com/gravitystorm/openstreetmap-carto/compare/v5.5.0...v5.5.1) - 2022-07-13
+### Changes
+- Fix unintentional colour change of gates
+
+## [v5.5.0](https://github.com/gravitystorm/openstreetmap-carto/compare/v5.4.0...v5.5.0) - 2022-07-09
+### Changes
+- Fixed colour mismatch of car repair shop icon and text (#4535)
+- Cleaned up SVG files to better align with Mapnik requirements (#4457)
+- Allow Docker builds on ARM machines (e.g. new Apple laptops) (#4539)
+- Allow file:// URLs in external data config and caching of downloaded files (#4468, #4153, #4584)
+- Render mountain passes (#4121)
+- Don't use a cross symbol for more Christian denominations that don't use a cross (#4587)
+
+## [v5.4.0](https://github.com/gravitystorm/openstreetmap-carto/compare/v5.3.1...v5.4.0) - 2021-09-22
+### Changes
+- Added a new `planet_osm_line_label` index (#4381)
+- Updated Docker development setup to use offical PostGIS images (#4294)
+- Fixed endline conversion issues with python setup scripts on Windows (#4330)
+- Added detailed rendering of golf courses (#4381, #4467)
+- De-emphasized street-side parking (#4301)
+- Changed subway stations to start text rendering at z15 (#4392)
+- Updated road shield generation scripts to Python 3 (#4453)
+- Updated external data loading script to support pyscopg2 2.9.1 (#4451)
+- Stopped displaying tourism=information with unknown information values
+- Switched the Natural Earth URL to point at its new location (#4466)
+- Added more logging to the external data loading script (#4472)
 
 ## [v5.3.1](https://github.com/gravitystorm/openstreetmap-carto/compare/v5.3.0...v5.3.1) - 2021-02-04
 ### Changes
