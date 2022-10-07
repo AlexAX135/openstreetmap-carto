@@ -3633,25 +3633,6 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   }
 }
 
-#guideways {
-  [zoom >= 11][zoom < 13] {
-    line-width: 0.6;
-    line-color: #6699ff;
-    [zoom >= 12] { line-width: 1; }
-  }
-  [zoom >= 13] {
-    line-width: 3;
-    line-color: #6699ff;
-    line-join: round;
-    b/line-width: 1;
-    b/line-color: white;
-    b/line-dasharray: 8,12;
-    b/line-join: round;
-  }
-  [zoom >= 14] {
-    b/line-dasharray: 0,11,8,1;
-  }
-}
 
 #aeroways {
   [aeroway = 'runway'] {
@@ -4075,6 +4056,34 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
       text-size: 11;
     }
   }
+  
+    [highway = 'busway'],
+  [highway = 'bus_guideway'],
+  [highway = 'construction'][construction = 'busway'],
+  [highway = 'construction'][construction = 'bus_guideway'] {
+    [zoom >= 14] {
+      text-name: "[name]";
+      text-fill: #666666;
+      text-size: 10;
+      text-dy: 6;
+      text-spacing: 300;
+      text-clip: false;
+      text-placement: line;
+      text-face-name: @book-fonts;
+      text-halo-radius: @standard-halo-radius;
+      text-halo-fill: @standard-halo-fill;
+      text-repeat-distance: @railway-text-repeat-distance;
+    }
+    [zoom >= 17] {
+      text-spacing: 600;
+      text-size: 11;
+      text-dy: 7;
+    }
+    [zoom >= 19] {
+      text-size: 12;
+      text-dy: 8;
+    }
+  }
 
   [highway = 'living_street'],
   [highway = 'pedestrian'],
@@ -4196,6 +4205,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     [highway = 'unclassified'],
     [highway = 'living_street'],
     [highway = 'road'],
+    [highway = 'busway'],
+    [highway = 'bus_guideway'],
     [highway = 'service'],
     [highway = 'pedestrian'],
     [highway = 'raceway'] {
@@ -4240,6 +4251,10 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         [highway = 'pedestrian'] {
           marker-fill: @pedestrian-oneway-arrow-color;
+        }
+        [highway = 'busway'],
+        [highway = 'bus_guideway'] {
+          marker-fill: @busway-oneway-arrow-color;
         }
         [highway = 'raceway'] {
           marker-fill: @raceway-oneway-arrow-color;
